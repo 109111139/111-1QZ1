@@ -1,12 +1,12 @@
 ﻿# 第1次隨堂-隨堂-QZ1
 >
->學號：1234567 
+>學號：109111139
 ><br />
->姓名：王小明 
+>姓名：繆昊廷 
 ><br />
->作業撰寫時間：180 (mins，包含程式撰寫時間)
+>作業撰寫時間：60mins
 ><br />
->最後撰寫文件日期：2022/10/12
+>最後撰寫文件日期：2022/09/26
 >
 
 本份文件包含以下主題：(至少需下面兩項，若是有多者可以自行新增)
@@ -15,21 +15,40 @@
 
 ## 說明程式與內容
 
-開始寫說明，該說明需說明想法，
-並於之後再對上述想法的每一部分將程式進一步進行展現，
-若需引用程式區則使用下面方法，
-若為.cs檔內程式除了於敘述中需註明檔案名稱外，
-還需使用語法` ```csharp 程式碼 ``` `，
-下段程式碼則為使用後結果：
+
+下段程式碼則為使用後結果：顯示10*10的陣列，其中，第0,7,13,28,44,62,74,75,87,90格顯示星號。
 
 ```csharp
-public void mt_getResult(){
-    ...
-}
+protected void Page_Load(object sender, EventArgs e)
+        {
+            int[] ia_MIndex = new int[10] {0, 7, 13, 28, 44, 62, 74, 75, 87, 90};
+            char[,] ia_Map = new char[10, 10];
+            for (int Row = 0; Row < 10; Row++)
+            {
+                for(int Col = 0; Col < 10; Col++)
+                {
+                    ia_Map[Row, Col] = '0';
+                }
+            }
+            for (int Ct = 0; Ct < 10; Ct++)
+            {
+                int Row = ia_MIndex[Ct] / 10;
+                int Col = ia_MIndex[Ct] % 10;
+                ia_Map[Row, Col] = '*';
+            }           
+            for (int Row = 0; Row < 10; Row++)
+            {
+                for (int Col = 0; Col < 10; Col++)
+                {
+                    Response.Write(ia_Map[Row, Col]);
+                }
+                Response.Write("<br />");
+            }
+        }
 ```
 
-若要於內文中標示部分.aspx檔，則使用以下標籤` ```html 程式碼 ``` `，
-下段程式碼則為使用後結果：
+
+下段程式碼則為使用後結果：無
 
 ```html
 <%@ Page Language="C#" AutoEventWireup="true" ...>
@@ -53,6 +72,5 @@ public void mt_getResult(){
 
 ## 個人認為完成作業須具備觀念
 
-開始寫說明，需要說明本次作業個人覺得需學會那些觀念 (需寫成文章，需最少50字，
-並且文內不得有你、我、他三種文字)
+需要會陣列的語法，還有for迴圈的運用，還有要會寫巢狀迴圈，迴圈和陣列結合在一起，怎麼算才能讓星號在題目要的位置上。
 
